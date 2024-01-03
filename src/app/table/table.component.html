@@ -1,0 +1,53 @@
+<h2>{{ serviceInfo.serviceName }}</h2>
+
+<table
+  mat-table
+  [dataSource]="serviceInfo.serviceInfo.categories"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="nameSERVICE">
+    <th mat-header-cell *matHeaderCellDef>عنوان</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="countSERVIC">
+    <th mat-header-cell *matHeaderCellDef>تعداد</th>
+    <td mat-cell *matCellDef="let element">{{ element.subs.length }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="serviceName">
+    <th mat-header-cell *matHeaderCellDef>نام خدمت</th>
+    <td mat-cell *matCellDef="let element">
+      <div *ngFor="let sub of element.subs">{{ sub.serviceName }}<br /></div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="insuredAmount">
+    <th mat-header-cell *matHeaderCellDef>سهم بیمه شده</th>
+    <td mat-cell *matCellDef="let element">
+      <div *ngFor="let sub of element.subs">{{ sub.insuredAmount }}<br /></div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="orgAmount">
+    <th mat-header-cell *matHeaderCellDef>سهم بانک</th>
+    <td mat-cell *matCellDef="let element">
+      <div *ngFor="let sub of element.subs">{{ sub.orgAmount }}<br /></div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef>جمع</th>
+    <td mat-cell *matCellDef="let element">
+      <div *ngFor="let sub of element.subs">{{ sub.total }}<br /></div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Sum Of total">
+    <th mat-header-cell *matHeaderCellDef>سرجمع کل خدمت</th>
+    <td mat-cell *matCellDef="let element">{{ element.sumOfTotalAmount }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
+</table>

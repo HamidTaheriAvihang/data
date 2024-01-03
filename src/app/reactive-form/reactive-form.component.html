@@ -1,0 +1,87 @@
+<mat-card style="padding: 20px">
+  <form
+    [formGroup]="setService"
+    class="example-form"
+    style="display: flex; flex-direction: column; width: 500px"
+  >
+    <p style="text-align: center; font-size: 25px; margin-top: 0px">
+      فرم ایجاد خدمت
+    </p>
+    <mat-form-field>
+      <mat-label>عنوان خدمت</mat-label>
+      <input
+        type="text"
+        placeholder="عنوان خدمت"
+        matInput
+        formControlName="name"
+        [matAutocomplete]="auto"
+      />
+      <mat-error
+        style="display: flex"
+        *ngIf="setService.controls.name.hasError('required')"
+      >
+        وارد کردن این قسمت اجباری است .
+      </mat-error>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        style="display: flex; flex-direction: column; text-align: center"
+      >
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>نام خدمت</mat-label>
+      <input
+        formControlName="serviceName"
+        matInput
+        placeholder="شرح خدمت دریافتی"
+      />
+      <mat-error
+        style="display: flex"
+        *ngIf="setService.controls.serviceName.hasError('required')"
+      >
+        وارد کردن این قسمت اجباری است .
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>سهم بیمه شده</mat-label>
+      <input
+        type="number"
+        formControlName="insuredAmount"
+        matInput
+        placeholder="ریال"
+      />
+      <mat-error
+        style="display: flex"
+        *ngIf="setService.controls.insuredAmount.hasError('required')"
+      >
+        وارد کردن این قسمت اجباری است .
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>سهم بانک</mat-label>
+      <input
+        type="number"
+        formControlName="orgAmount"
+        matInput
+        placeholder="ریال"
+      />
+      <mat-error
+        style="display: flex"
+        *ngIf="setService.controls.orgAmount.hasError('required')"
+      >
+        وارد کردن این قسمت اجباری است .
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="setForm()"
+    [disabled]="!setService.valid"
+  >
+    ثبت خدمت
+  </button>
+</mat-card>
