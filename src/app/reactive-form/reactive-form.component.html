@@ -1,6 +1,6 @@
 <mat-card style="padding: 20px">
   <form
-    [formGroup]="setService"
+    [formGroup]="setServiceForm"
     class="example-form"
     style="display: flex; flex-direction: column; width: 500px"
   >
@@ -18,7 +18,7 @@
       />
       <mat-error
         style="display: flex"
-        *ngIf="setService.controls.name.hasError('required')"
+        *ngIf="setServiceForm.controls.name.hasError('required')"
       >
         وارد کردن این قسمت اجباری است .
       </mat-error>
@@ -32,7 +32,7 @@
       </mat-autocomplete>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <mat-label>نام خدمت</mat-label>
+      <mat-label>شرح خدمت</mat-label>
       <input
         formControlName="serviceName"
         matInput
@@ -40,7 +40,7 @@
       />
       <mat-error
         style="display: flex"
-        *ngIf="setService.controls.serviceName.hasError('required')"
+        *ngIf="setServiceForm.controls.serviceName.hasError('required')"
       >
         وارد کردن این قسمت اجباری است .
       </mat-error>
@@ -55,7 +55,7 @@
       />
       <mat-error
         style="display: flex"
-        *ngIf="setService.controls.insuredAmount.hasError('required')"
+        *ngIf="setServiceForm.controls.insuredAmount.hasError('required')"
       >
         وارد کردن این قسمت اجباری است .
       </mat-error>
@@ -70,7 +70,7 @@
       />
       <mat-error
         style="display: flex"
-        *ngIf="setService.controls.orgAmount.hasError('required')"
+        *ngIf="setServiceForm.controls.orgAmount.hasError('required')"
       >
         وارد کردن این قسمت اجباری است .
       </mat-error>
@@ -80,7 +80,7 @@
     mat-raised-button
     color="primary"
     (click)="setForm()"
-    [disabled]="!setService.valid"
+    [disabled]="!setServiceForm.valid"
   >
     ثبت خدمت
   </button>

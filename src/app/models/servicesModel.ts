@@ -1,5 +1,13 @@
-export interface ServiceInt {
+import { HOSPITATYPELENUM } from "./ENUM/HOSPITALENUM"
+
+export interface DataInt {
     serviceInfo: ServiceInfoInt
+
+}
+
+export interface ServiceInt {
+    serviceInfo: ServiceAmount
+    serviceName: HOSPITATYPELENUM
 }
 
 export interface ServiceInfoInt {
@@ -12,10 +20,12 @@ export interface ServiceInfoInt {
 
 export interface ServiceAmount {
     sumOfTotalAmount: number,
+
     categories: SubInt[]
 }
 
 export interface CatInt {
+
     Name: string,
     subs: SubInt[]
 
@@ -26,6 +36,7 @@ export interface SubInt {
     sumOfTotalAmount: number,
     orgAmount: number,
     insuredAmount: number,
+
 }
 
 export interface ServiceResult {
