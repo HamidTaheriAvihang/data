@@ -1,52 +1,55 @@
 import { HOSPITATYPELENUM } from "./ENUM/HOSPITALENUM"
 
 export interface DataInt {
-    serviceInfo: ServiceInfoInt
+  serviceInfo: ServiceInfoInt
 
 }
 
 export interface ServiceInt {
-    serviceInfo: ServiceAmount
-    serviceName: HOSPITATYPELENUM
+  serviceInfo: ServiceAmount
+  serviceName: HOSPITATYPELENUM
 }
 
 export interface ServiceInfoInt {
-    hotelingServices: ServiceAmount,
-    otherServices: ServiceAmount,
-    drugAndEquipServices: ServiceAmount,
-    doctorServices: ServiceAmount,
-    paraclinicServices: ServiceAmount
+  hotelingServices: ServiceAmount,
+  otherServices: ServiceAmount,
+  drugAndEquipServices: ServiceAmount,
+  doctorServices: ServiceAmount,
+  paraclinicServices: ServiceAmount,
+
 }
 
 export interface ServiceAmount {
-    sumOfTotalAmount: number,
+  sumOfTotalAmount: number,
 
-    categories: SubInt[]
+  categories: SubInt[]
 }
 
 export interface CatInt {
 
-    Name: string,
-    subs: SubInt[]
+  Name: string,
+  subs: SubInt[]
 
 }
 
 export interface SubInt {
-    serviceName: string
-    sumOfTotalAmount: number,
-    orgAmount: number,
-    insuredAmount: number,
-
+  name: string
+  serviceName: string
+  sumOfTotalAmount: number,
+  orgAmount: number,
+  insuredAmount: number,
+  subs?: SubInt[],
+  total?: number;
 }
 
 export interface ServiceResult {
-    serviceInfo: ServiceInfoInt
+  serviceInfo: ServiceInfoInt
 }
 
 export interface FormValueInt {
-    name: string,
-    serviceName: string,
-    orgAmount: number,
-    insuredAmount: number,
-    total: number
+  name: string,
+  serviceName: string,
+  orgAmount: number,
+  insuredAmount: number,
+  total: number
 }

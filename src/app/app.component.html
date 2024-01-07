@@ -4,7 +4,7 @@
     [serviceInfo]="service"
   ></app-services-table>
 </div>
-<app-reactive-form
+<app-services-form
   (valuesForms)="onSetForms($event)"
   style="
     display: flex;
@@ -13,16 +13,4 @@
     direction: rtl;
     padding: 10px;
   "
-></app-reactive-form>
-
-<!-- FOR SEND FORM  -->
-<!-- <app-reactive-form
-  (valuesForms)="onSetForms($event)"
-  style="
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    direction: rtl;
-    padding: 10px;
-  "
-></app-reactive-form> -->
+></app-services-form>
